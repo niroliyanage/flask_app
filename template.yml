@@ -1,0 +1,33 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: >
+  Cost Saver
+
+Globals:
+  Function:
+    Timeout: 30
+
+
+Resources:
+  myapp:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: myapi
+      FunctionName: myapp
+      Handler: myapp.myapp_handler
+      Runtime: python3.6
+      MemorySize: 128
+      Policies:
+         - AWSLambdaExecute # Managed Policy
+      Events:
+        HelloWorldApi:
+          Type: Api
+          Properties:
+            RestApiId: !Ref BasicAWSApiGateway
+            Path: /hello
+            Method: GET
+  BasicAWSApiGateway:
+    Type: AWS::Serverless::Api
+    Properties:
+      Name: Basic AWS Api Gateway
+      StageName: Staging
