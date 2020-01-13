@@ -7,6 +7,7 @@ env:
     - REGISTRY_USER=nirothegreat
     - REGISTRY_PASS=Niro2008
 before_script:
+  -  ls -ltr
   - sed -i -e "s/VersionNumber/${TRAVIS_BUILD_NUMBER}/g"  -e "s/VersionCommit/${TRAVIS_COMMIT}/" app/static/data/metadata.json
 script:
   - docker build --pull --cache-from "$IMAGE_NAME" --tag "$IMAGE_NAME" .
