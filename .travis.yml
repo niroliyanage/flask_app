@@ -3,7 +3,7 @@ services:
   - docker
 env:
   global:
-    - IMAGE_NAME=kmart/myapi
+    - IMAGE_NAME=nirothegreat/myapi
     - REGISTRY_USER=nirothegreat
     - REGISTRY_PASS=Niro2008
 before_script:
