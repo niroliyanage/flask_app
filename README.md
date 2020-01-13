@@ -1,8 +1,9 @@
-# myapp
+
+#Kmart_Tech_challenge
+
 
 The Solution uses the following tools
 - Travis for CI and CD
-- AWS SAM to deploy the infrastructure
 
 ## BUILD
 
