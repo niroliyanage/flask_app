@@ -1,0 +1,25 @@
+sudo: required
+services:
+  - docker
+env:
+  global:
+    - IMAGE_NAME=kmart/myapi
+    - REGISTRY_USER=nirothegreat
+    - REGISTRY_PASS=Niro2008
+before_script:
+  - sed -i -e "s/VersionNumber/${TRAVIS_BUILD_NUMBER}/g"  -e "s/VersionCommit/${TRAVIS_COMMIT}/" app/static/metadata.json
+script:
+  - docker build --pull --cache-from "$IMAGE_NAME" --tag "$IMAGE_NAME" .
+
+after_script:
+  - docker images
+
+before_deploy:
+  - docker login -u "$REGISTRY_USER" -p "$REGISTRY_PASS"
+  - docker tag "$IMAGE_NAME" "${IMAGE_NAME}:latest"
+  - docker tag "$IMAGE_NAME" "${IMAGE_NAME}:${version}"
+deploy:
+  provider: script
+  script: docker push "${IMAGE_NAME}:latest" && docker push "${IMAGE_NAME}:${version}"
+  on:
+    branch: master

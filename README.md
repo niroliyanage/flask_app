@@ -1,8 +1,6 @@
 # myapp
 
 The Solution uses the following tools
-- Lambda Function as the API Service
-- Amazon API gateway to filter requests into the function
 - Travis for CI and CD
 - AWS SAM to deploy the infrastructure
 
