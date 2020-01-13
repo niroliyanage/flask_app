@@ -1,4 +1,7 @@
-# myapp
+
+#Kmart_Tech_challenge
+
+https://travis-ci.com/niroliyanage/kmart_tech_challenge.svg?branch=master
 
 The Solution uses the following tools
 - Travis for CI and CD
