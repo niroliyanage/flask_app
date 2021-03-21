@@ -9,7 +9,7 @@ before_script:
   - sed -i  -e "s/mysha/${TRAVIS_COMMIT}/" ./myapi/app/static/data/metadata.json
 script:
   - cd myapi
-  - docker build -t myapp:latest .
+  - docker build -t myapi .
 
 after_script:
   - docker images
