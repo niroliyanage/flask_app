@@ -5,10 +5,11 @@ env:
   global:
     - IMAGE_NAME=nirothegreat/myapi
 before_script:
-  -  ls -ltr
+  - ls -ltr
   - sed -i  -e "s/mysha/${TRAVIS_COMMIT}/" ./myapi/app/static/data/metadata.json
 script:
-  - docker build --pull --cache-from "$IMAGE_NAME" --tag "$IMAGE_NAME" ./myapi/
+  - cd myapi
+  - docker build -t myapp:latest .
 
 after_script:
   - docker images
