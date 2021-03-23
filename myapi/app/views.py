@@ -10,7 +10,7 @@ app.config['JSONIFY_PRETTYPRINT_REGULAR'] = True
 
 @app.route('/')
 def home():
-   return "hello worldfasdsadsa"
+   return "hello world"
 
 @app.route('/meta')
 def status(): 
