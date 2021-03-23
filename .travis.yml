@@ -1,7 +1,7 @@
 language: python
 dist: xenial
 python:
-  - 3.6
+  - 3.7.6
 sudo: required
 services:
   - docker
@@ -10,6 +10,7 @@ env:
     - IMAGE_NAME=nirothegreat/myapi
 before_install:
   - python --version
+  - pip install --user codecov
 install:
   - pip3 install -U pytest
 before_script:
@@ -31,3 +32,5 @@ deploy:
   script: docker push "${IMAGE_NAME}:latest"
   on:
     branch: master
+after_success:
+  - codecov --file coverage/lcov.info --disable search
