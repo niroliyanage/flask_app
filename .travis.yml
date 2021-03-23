@@ -6,7 +6,7 @@ env:
     - IMAGE_NAME=nirothegreat/myapi
 before_script:
   - python --version
-  - python3 version
+  - python3 --version
   - pip install pytest
   - ls -ltr
   - sed -i  -e "s/mysha/${TRAVIS_COMMIT}/" ./myapi/app/static/data/metadata.json
