@@ -10,7 +10,7 @@ env:
     - IMAGE_NAME=nirothegreat/myapi
 before_install:
   - python --version
-  - pip install --user codecov
+  - pip3 install -U codecov
 install:
   - pip3 install -U pytest
 before_script:
