@@ -14,7 +14,7 @@ before_script:
 script:
   - cd myapi
   - pip3 install -r requirements.txt
-  - python3 -m pytest  tests/
+  - python3 -m pytest  tests/ || travis_terminate 1;
   - docker build -t nirothegreat/myapi .
 
 after_script:
