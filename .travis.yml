@@ -10,7 +10,8 @@ before_script:
 script:
   - python --version
   - python3 --version
-  - pip install pytest
+  - pip3 install pytest
+  - python3 -m pip install pytest
   - cd myapi
   - pytest
   - docker build -t nirothegreat/myapi .
