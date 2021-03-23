@@ -8,18 +8,14 @@ services:
 env:
   global:
     - IMAGE_NAME=nirothegreat/myapi
-before_install:
-  - python --version
-  - pip3 install -U codecov
-install:
-  - pip3 install -U pytest
 before_script:
   - ls -ltr
   - sed -i  -e "s/mysha/${TRAVIS_COMMIT}/" ./myapi/app/static/data/metadata.json
 script:
   - cd myapi
+  - pip3 install -r requirements.txt
   - python3 -m pytest  tests/
-  #- docker build -t nirothegreat/myapi .
+  - docker build -t nirothegreat/myapi .
 
 after_script:
   - docker images
@@ -32,5 +28,3 @@ deploy:
   script: docker push "${IMAGE_NAME}:latest"
   on:
     branch: master
-after_success:
-  - codecov --file coverage/lcov.info --disable search
