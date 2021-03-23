@@ -29,5 +29,5 @@ http://localhost:5000/healthcheck
 ## Gotcha's
  - In a real world we wont be directly to the master, there will be a branching strategy 
  - You will need docker installed locally to test the solution
- - Its using my travis-ci space. you could use your own, but will need to setup a docker registry access and most likelky change the name
+ - Its using my travis-ci space. you could use your own, but will need to setup a docker registry access and most likely change the name of the image (in .travis.yml)
  - Pretty simple unit tests written to match only String responses
