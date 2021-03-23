@@ -4,11 +4,13 @@ import os, requests
 from flask import Flask, render_template, url_for, json
 from healthcheck import HealthCheck
 
+
 app.config['JSONIFY_PRETTYPRINT_REGULAR'] = True
+
 
 @app.route('/')
 def home():
-   return "hello world!"
+   return "hello world"
 
 @app.route('/meta')
 def status(): 
@@ -23,4 +25,3 @@ def healthy():
    return True, 'OK'
 
 health.add_check(healthy)
-#health.success_status(healthy)
