@@ -17,7 +17,8 @@ before_script:
   - ls -ltr
   - sed -i  -e "s/mysha/${TRAVIS_COMMIT}/" ./myapi/app/static/data/metadata.json
 script:
-  - pytest
+  - cd myapi
+  - python3 -m pytest  tests/
   #- docker build -t nirothegreat/myapi .
 
 after_script:
