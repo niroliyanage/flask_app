@@ -15,6 +15,9 @@ The Solution uses the following tools
 ## Deployment
  - Change anything in the myapi/folder (maybe add a space). push the change to the master branch triggering a build and upon a successful image build it will be pushed to a docker repo
 
+![image](https://user-images.githubusercontent.com/11021363/112158693-84456980-8c3c-11eb-9226-deb9315f96d2.png)
+
+
  - Once the build is successful, download the "latest" and run it on docker
 
  `docker run -d -p 5000:80 nirothegreat/myapi:latest`
