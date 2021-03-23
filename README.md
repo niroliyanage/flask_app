@@ -9,9 +9,11 @@ The Solution uses the following tools
 ## BUILD
 
  - Standard Docker commands to encapsulate and build and image
+ - All dependencies are also installed onthe travis agent for the unit tests to run
+ - The dependencies are again downlaoded and installed as part of the image build 
 
 ## Deployment
- - Change anything in the myapi/folder (maybe add a space). push the change to the master branch and the build would automatically start run the unit tests and publish a docker image
+ - Change anything in the myapi/folder (maybe add a space). push the change to the master branch triggering a build and upon a successful image build it will be pushed to a docker repo
 
  - Once the build is successful, download the "latest" and run it on docker
 
