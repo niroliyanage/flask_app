@@ -34,3 +34,5 @@ http://localhost:5000/healthcheck
  - You will need docker installed locally to test the solution
  - Its using my travis-ci space. you could use your own, but will need to setup a docker registry access and most likely change the name of the image (in .travis.yml)
  - Pretty simple unit tests written to match only String responses
+ - Travis currently builds on any  change including README.. Ideally would work based on changesets
+ 
