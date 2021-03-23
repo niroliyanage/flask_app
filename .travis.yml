@@ -1,17 +1,22 @@
+language: python
+dist: xenial
+python:
+  - 3.6
 sudo: required
 services:
   - docker
 env:
   global:
     - IMAGE_NAME=nirothegreat/myapi
+before_install:
+  - python --version
+  - pip install -U pytest
+install:
+  - pip install ".[test]"
 before_script:
   - ls -ltr
   - sed -i  -e "s/mysha/${TRAVIS_COMMIT}/" ./myapi/app/static/data/metadata.json
 script:
-  - python --version
-  - python3 --version
-  - pip3 install pytest
-  - python3 -m pip install pytest
   - cd myapi
   - pytest
   - docker build -t nirothegreat/myapi .
